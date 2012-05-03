@@ -1,0 +1,56 @@
+BODY { color: #000000; background: #ffffff; margin: 0px; padding: 0px; }
+/* approx Pantone 12-1005 TCX Novelle Peach */
+#header { background: #e9d4bf; padding: 10px; margin: 0px; }
+#content { margin: 6px; }
+#content P { text-align: center; }
+#footer { background: #a7acc4; padding: 4px; margin: 0px; }
+H1 { font: italic 32pt verdana,arial,helvetica,sans-serif; }
+#header H1 { text-align: center; }
+#footer P { text-align: center; }
+H2 { font: bold 18pt verdana,arial,helvetica,sans-serif; }
+H3 { font: bold 14pt verdana,arial,helvetica,sans-serif; }
+UL { font: 12pt verdana,arial,helvetica,sans-serif; }
+P { font: 12pt verdana,arial,helvetica,sans-serif; }
+P.small { font: 10pt verdana,arial,helvetica,sans-serif; }
+P B { font: bold 12pt verdana,arial,helvetica,sans-serif; }
+P EM { font: italic 12pt verdana,arial,helvetica,sans-serif; }
+TD { font: 12pt verdana,arial,helvetica,sans-serif; }
+TD B { font: bold 12pt verdana,arial,helvetica,sans-serif; }
+PRE { font: 12pt lucidatypewriter,lucidasanstypewriter,courier,monospace; }
+all.program { font: bold 12pt verdana,arial,helvetica,sans-serif; }
+all.option { font: bold 12pt verdana,arial,helvetica,sans-serif; }
+all.function { font: bold 12pt verdana,arial,helvetica,sans-serif; }
+PRE.example {
+  font: 12pt lucidatypewriter,lucidasanstypewriter,courier,monospace;
+  color: #000000;
+  background-color: #d0d0f6;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1pt;
+  padding: 10pt;
+  white-space: pre;
+}
+PRE.source {
+  font: 12pt lucidatypewriter,lucidasanstypewriter,courier,monospace;
+  color: #000000;
+  background-color: #d0d0f6;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1pt;
+  padding: 10pt;
+  white-space: pre;
+}
+TD.hilite {
+  color: #000000;
+  background-color: #d0d0f6;
+}
+TR.hilite {
+  color: #000000;
+  background-color: #d0d0f6;
+}
+P.quote {
+  color: #000000;
+  background-color: #d0d0f6;
+  padding: 20pt;
+}
+/* vim:set ft=css: */
