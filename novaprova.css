@@ -1,12 +1,64 @@
-BODY { color: #000000; background: #ffffff; margin: 0px; padding: 0px; }
-/* approx Pantone 12-1005 TCX Novelle Peach */
-#header { background: #e9d4bf; padding: 10px; margin: 0px; }
-#content { margin: 6px; }
-#content P { text-align: center; }
-#footer { background: #a7acc4; padding: 4px; margin: 0px; }
-H1 { font: italic 32pt verdana,arial,helvetica,sans-serif; }
-#header H1 { text-align: center; }
-#footer P { text-align: center; }
+body {
+    color: #000000;
+    margin: 0px;
+    padding: 0px;
+    background: #fffcf5;
+}
+#header {
+    background: #fffcf5;
+    height: 252px;
+    padding: 0px;
+    margin: 0px;
+    background-image: url("stock-photo-7540791-eye-chart-series.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+}
+#header h1 {
+    text-align: left;
+    font: 72pt verdana,arial,helvetica,sans-serif;
+}
+#header p {
+    text-align: left;
+    font: italic 16pt verdana,arial,helvetica,sans-serif;
+}
+#nav {
+    background: #ffffff;
+    border-top: 3px solid #a0a0a0;
+}
+#wrap {
+    background: #ffffff;
+}
+#column1 {
+    margin: 0px;
+    padding: 0px;
+    width: 50%;
+    float: left;
+}
+#column2 {
+    margin: 0px 0px 0px 50%;
+    padding: 0px;
+    width: 50%;
+}
+#column1 p {
+    margin: 6px;
+    font: 12pt verdana,arial,helvetica,sans-serif;
+}
+#column2 p {
+    margin: 6px;
+    font: 12pt verdana,arial,helvetica,sans-serif;
+}
+#footer {
+    background: #fffcf5;
+    border-top: 3px solid #a0a0a0;
+    padding: 4px;
+    margin: 0px;
+    width: 100%;
+    clear: left;
+}
+#footer p {
+    font: 8pt verdana,arial,helvetica,sans-serif;
+    text-align: center;
+}
 H2 { font: bold 18pt verdana,arial,helvetica,sans-serif; }
 H3 { font: bold 14pt verdana,arial,helvetica,sans-serif; }
 UL { font: 12pt verdana,arial,helvetica,sans-serif; }
