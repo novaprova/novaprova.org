@@ -22,9 +22,22 @@ body {
     font: italic 16pt verdana,arial,helvetica,sans-serif;
 }
 #nav {
-    background: #ffffff;
-    border-top: 3px solid #a0a0a0;
+    background: #808080;
+    color: #ffffff;
 }
+#nav ul {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+#nav li {
+    display: inline-block;
+    text-align: left;
+    padding: 5px 10px 5px 10px;
+    font: 12pt verdana,arial,helvetica,sans-serif;
+}
+#nav a:link { color: #ffffff; }
+#nav a:visited { color: #e0e0e0; }
 #wrap {
     background: #ffffff;
 }
@@ -49,7 +62,7 @@ body {
 }
 #footer {
     background: #fffcf5;
-    border-top: 3px solid #a0a0a0;
+    border-top: 3px solid #808080;
     padding: 4px;
     margin: 0px;
     width: 100%;
