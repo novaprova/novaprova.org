@@ -41,24 +41,31 @@ body {
 #wrap {
     background: #ffffff;
 }
-#column1 {
-    margin: 0px;
+.column {
     padding: 0px;
+    font: 12pt verdana,arial,helvetica,sans-serif;
+}
+#column1 {
     width: 50%;
+    margin: 0px;
     float: left;
 }
 #column2 {
-    margin: 0px 0px 0px 50%;
-    padding: 0px;
     width: 50%;
+    margin: 0px 0px 0px 50%;
 }
-#column1 p {
+.column p {
     margin: 6px;
-    font: 12pt verdana,arial,helvetica,sans-serif;
 }
-#column2 p {
+.column li {
     margin: 6px;
-    font: 12pt verdana,arial,helvetica,sans-serif;
+}
+#faq {
+    padding: 10px;
+}
+#faq dt {
+    font-weight: bold;
+    margin: 6px;
 }
 #footer {
     background: #fffcf5;
