@@ -19,6 +19,7 @@ body {
 }
 #header p {
     text-align: left;
+    margin-left: 30px;
     font: italic 16pt verdana,arial,helvetica,sans-serif;
 }
 #nav {
