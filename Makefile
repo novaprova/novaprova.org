@@ -13,7 +13,7 @@ DELIVERABLES = \
 DESTINATION_install = \
     $(USER),novaprova@web.sourceforge.net:/home/project-web/novaprova/htdocs
 DESTINATION_test = \
-    ~/public_html/novaprova
+    /tmp/novaprova
 
 install test:
 	rsync -vad -e ssh $(DELIVERABLES) $(DESTINATION_$@)
