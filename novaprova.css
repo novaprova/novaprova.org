@@ -34,10 +34,16 @@ body {
 #nav li {
     display: inline-block;
     text-align: left;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 20px 5px 20px;
     font: 12pt verdana,arial,helvetica,sans-serif;
 }
-#nav a:link { color: #ffffff; }
+/* getting Webkit to actually display the hover property
+ * is surprisingly unobvious... */
+#nav li:hover a, #nav li a:hover {
+    color: #ffffff;
+    text-shadow: #404040 1px 1px 1px;
+}
+#nav a:link { color: #e0e0e0; }
 #nav a:visited { color: #e0e0e0; }
 #wrap {
     background: #ffffff;
