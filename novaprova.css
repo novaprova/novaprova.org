@@ -62,6 +62,9 @@ body {
 .column li {
     margin: 6px;
 }
+.column a:link, .column a:visited {
+    color: #808080;
+}
 #faq {
     padding: 10px;
 }
