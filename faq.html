@@ -4,8 +4,27 @@
   <!-- Copyright (c) 2012 Greg Banks. All Rights Reserved.  -->
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>novaprova - FAQ</title>
-  <link href="novaprova.css" rel="stylesheet" type="text/css">
   <meta name="keywords" content="novaprova,test driven development,TDD,xUnit,unit,test,unit test,framework,test framework,unit test framework">
+  <link href="novaprova.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript">
+
+jQuery(document).ready(function()
+{
+    var dts = $('#faq dt');
+    dts.click(function() {
+	$(this).next().toggle('medium');
+	location.hash = '#' + $('a', this).prop('name');
+	return false;
+    });
+    dts.next().hide();
+    if (location.hash)
+    {
+	$('#faq dt a[href="' + location.hash + '"]').parent().next().show();
+    }
+});
+
+  </script>
 </head>
 <body>
 
@@ -30,7 +49,7 @@
 
 <dl>
 
-<dt><a name="novaprova_name">Why did you call it Novaprova?</dt>
+<dt><a href="#novaprova_name" name="novaprova_name">Why did you call it Novaprova?</a></dt>
 <dd>
 <p>
 Because all the obvious names were already in use.
@@ -50,7 +69,7 @@ sounds vaguely like a drug.
 </p>
 </dd>
 
-<dt><a name="reflection">Reflection?  That's not possible in C!</dt>
+<dt><a href="#reflection" name="reflection">Reflection?  That's not possible in C!</a></dt>
 <dd>
 <p>
 Sure it is.  All you need to do is to be able to read the debugging
@@ -89,7 +108,7 @@ As far as I know, this is a feature unique to Novaprova.
 </p>
 </dd>
 
-<dt><a name="runtime_errors">What runtime errors does Novaprova catch?</dt>
+<dt><a href="#runtime_errors" name="runtime_errors">What runtime errors does Novaprova catch?</a></dt>
 <dd>
 Novaprova detects the following runtime errors and reports them
 as test failures:
@@ -105,7 +124,7 @@ as test failures:
   </ul>
 </dd>
 
-<dt><a name="mocking">Runtime mocking in C - you're kidding me?</dt>
+<dt><a href="#mocking" name="mocking">Runtime mocking in C - you're kidding me?</a></dt>
 <dd>
 <p>
 Novaprova implements function mocking using a technology similar to
@@ -146,7 +165,7 @@ As far as I know, this is a feature unique to Novaprova.
 </p>
 </dd>
 
-<dt><a name="parameters">What are test parameters?</dt>
+<dt><a href="#parameters" name="parameters">What are test parameters?</a></dt>
 <dd>
 <p>
 <a
@@ -163,7 +182,7 @@ before each run.  The result from each run is reported separately.
 </p>
 </dd>
 
-<dt><a name="building">Building a test executable</dt>
+<dt><a href="#building" name="building">Building a test executable</a></dt>
 <dd>
 <p>
 A test executable which uses Novaprova can be built like any other

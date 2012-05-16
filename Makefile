@@ -9,6 +9,7 @@ DELIVERABLES = \
     faq.html \
     index.html \
     novaprova.css \
+    jquery-1.7.2.min.js \
     stock-photo-7540791-eye-chart-series.jpg
 
 DESTINATION_install = \
