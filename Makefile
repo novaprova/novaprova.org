@@ -5,6 +5,7 @@
 all:
 
 DELIVERABLES = \
+    docs.html \
     faq.html \
     index.html \
     novaprova.css \
