@@ -9,7 +9,7 @@ DELIVERABLES = \
     index.html \
     novaprova.css \
     jquery-1.7.2.min.js \
-    stock-photo-7540791-eye-chart-series.jpg
+    iStock_000007540791Small_scaled.jpg
 
 all: $(addprefix build/,$(DELIVERABLES))
 
