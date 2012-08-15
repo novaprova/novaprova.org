@@ -9,7 +9,8 @@ DELIVERABLES = \
     index.html \
     novaprova.css \
     jquery-1.7.2.min.js \
-    iStock_000007540791Small_scaled.jpg
+    iStock_000007540791Small_scaled.jpg \
+    doc-1.0/get-start/index.html
 
 all: $(addprefix build/,$(DELIVERABLES))
 
@@ -29,6 +30,9 @@ build/%.html: %.html
 	    sed -e '1,/^---/d' < $< ;\
 	    cat foot.html ;\
 	) | mustache > $@
+
+build/doc-1.0/%: doc-1.0.tar.bz2
+	( cd build ; tar -xvf ../doc-1.0.tar.bz2 )
 
 build/%.css: %.css
 	@mkdir -p $(@D)
