@@ -7,6 +7,7 @@ DELIVERABLES = \
     docs.html \
     faq.html \
     index.html \
+    contact.html \
     novaprova.css \
     jquery-1.7.2.min.js \
     iStock_000007540791Small_scaled.jpg \
