@@ -4,9 +4,12 @@
   <!-- Copyright (c) 2012 Greg Banks. All Rights Reserved.  -->
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>{{title}}</title>
-  <link href="novaprova.css" rel="stylesheet" type="text/css">
+  <link href="{{pathup}}novaprova.css" rel="stylesheet" type="text/css">
+{{#addcss}}
+  <link href="{{path}}" rel="stylesheet" type="text/css">
+{{/addcss}}
   <meta name="keywords" content="novaprova,test driven development,TDD,xUnit,unit,test,unit test,framework,test framework,unit test framework">
-  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="{{pathup}}jquery-1.7.2.min.js"></script>
 </head>
 <body>
 
@@ -14,3 +17,16 @@
 <h1>novaprova</h1>
 <p>new generation unit test framework for C</p>
 </div>
+
+<div id="wrap">
+
+<div id="nav">
+<ul>
+<li><a href="{{pathup}}index.html">Home</a>
+<li><a href="{{pathup}}docs.html">Documentation</a>
+<li><a href="http://sourceforge.net/projects/novaprova/files/">Download</a>
+<li><a href="https://github.com/gnb/novaprova">Latest</a>
+<li><a href="{{pathup}}contact.html">Contact</a>
+</ul>
+</div>
+
