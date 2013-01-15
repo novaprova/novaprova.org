@@ -5,8 +5,13 @@ title: novaprova - Documentation
 
 <ul>
 <li><a href="faq.html">Frequently Asked Questions</a>
-<li><a href="doc-1.0/get-start/index.html">Getting Started</a>
-<li><a href="doc-1.0/api-ref/index.html">API Reference</a>
+{{#versions}}
+<li>Version {{v}}
+  <ul>
+    <li><a href="doc-{{v}}/get-start/index.html">Getting Started</a>
+    <li><a href="doc-{{v}}/api-ref/index.html">API Reference</a>
+  </ul>
+{{/versions}}
 </ul>
 
 

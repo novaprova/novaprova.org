@@ -2,6 +2,7 @@
 # Makefile for NovaProva website
 #
 
+comma=,
 
 MUSTACHE_FILES = \
     docs.html \
@@ -9,8 +10,18 @@ MUSTACHE_FILES = \
     index.html \
     contact.html
 
+DOC_VERSIONS = 	1.0 1.1
+
 DOC_FILES = \
-    $(sort $(shell tar -tf doc-1.0.tar.bz2 | egrep -v '/$$' | egrep -v '\.(o|a)$$' | egrep -v testrunner))
+    $(sort \
+	$(foreach v,\
+	    $(DOC_VERSIONS),\
+	    $(shell tar -tf doc-$v.tar.bz2 | egrep -v '/$$' | egrep -v '\.(o|a)$$' | egrep -v testrunner)\
+	)\
+    )
+
+_versions_yaml=\
+	$(subst $(comma)],],[$(foreach v,$(DOC_VERSIONS),{ v: "$v" }$(comma))])
 
 PLAIN_FILES = \
     novaprova.css \
@@ -31,7 +42,9 @@ install test:
 $(addprefix build/,$(MUSTACHE_FILES)) : build/%.html : %.html
 	@mkdir -p $(@D)
 	( \
-	    sed -n -e '1,/^---/p' < $< ;\
+	    sed -n -e '1p' < $< ;\
+	    echo 'versions: $(_versions_yaml)' ;\
+	    sed -n -e '2,/^---/p' < $< ;\
 	    cat head.html ;\
 	    sed -e '1,/^---/d' < $< ;\
 	    cat foot.html ;\
@@ -41,15 +54,15 @@ $(addprefix build/,$(PLAIN_FILES)) : build/% : %
 	@mkdir -p $(@D)
 	cp $< $@
 
-$(addprefix build/,$(DOC_FILES)): doc-1.0/.stamp
+$(addprefix build/,$(DOC_FILES)): $(foreach v,$(DOC_VERSIONS),doc-$v/.stamp)
 	@mkdir -p $(@D)
 	cp `echo $@ | sed -e 's|^build/||'` $@
 
-doc-1.0/.stamp: doc-1.0.tar.bz2
+doc-%/.stamp: doc-%.tar.bz2
 	@echo "Extracting docs from $<"
-	$(RM) -r doc-1.0
-	tar -xvf doc-1.0.tar.bz2
-	find doc-1.0 -type f -name '*.html' | while read file ; do \
+	$(RM) -r doc-$*
+	tar -xvf doc-$*.tar.bz2
+	find doc-$* -type f -name '*.html' | while read file ; do \
 	    echo "Munging $$file" ;\
 	    ( \
 		dir=`dirname $$file` ;\
@@ -78,4 +91,4 @@ doc-1.0/.stamp: doc-1.0.tar.bz2
 
 
 clean:
-	$(RM) -r doc-1.0 build $(DESTINATION_test)
+	$(RM) -r $(addprefix doc-,$(DOC_VERSIONS)) build $(DESTINATION_test)
