@@ -1,0 +1,10 @@
+
+You will need the following tools to build the NovaProva website.
+
+mustache
+https://github.com/defunkt/mustache
+    I use the Ruby version - just clone it and run:
+    gem build mustache.gemspc
+    gem install mustache*.gem
+
+
