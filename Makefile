@@ -6,6 +6,7 @@ comma=,
 
 MUSTACHE_FILES = \
     docs.html \
+    download.html \
     faq.html \
     index.html \
     contact.html
