@@ -10,7 +10,7 @@ MUSTACHE_FILES = \
     index.html \
     contact.html
 
-DOC_VERSIONS = 	1.0 1.1
+DOC_VERSIONS = 	1.0 1.1 1.2
 
 DOC_FILES = \
     $(sort \
