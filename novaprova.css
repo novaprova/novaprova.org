@@ -15,12 +15,13 @@ body {
 }
 #header h1 {
     text-align: left;
-    font: 72pt verdana,arial,helvetica,sans-serif;
+    font: 72px verdana,arial,helvetica,sans-serif;
+    margin: 0px;
 }
 #header p {
     text-align: left;
     margin-left: 30px;
-    font: italic 16pt verdana,arial,helvetica,sans-serif;
+    font: italic 16px verdana,arial,helvetica,sans-serif;
 }
 #nav {
     background: #808080;
