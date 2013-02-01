@@ -41,7 +41,7 @@ DESTINATION_test = \
 install test: 
 	rsync -vad -e ssh build/ $(DESTINATION_$@)
 
-$(addprefix build/,$(MUSTACHE_FILES)) : build/%.html : %.html
+$(addprefix build/,$(MUSTACHE_FILES)) : build/%.html : %.html head.html foot.html
 	@mkdir -p $(@D)
 	( \
 	    sed -n -e '1p' < $< ;\
