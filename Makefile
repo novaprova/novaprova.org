@@ -3,6 +3,9 @@
 #
 
 comma=,
+define space
+ 
+endef
 
 MUSTACHE_FILES = \
     docs.html \
@@ -22,7 +25,7 @@ DOC_FILES = \
     )
 
 _versions_yaml=\
-	$(subst $(comma)],],[$(foreach v,$(DOC_VERSIONS),{ v: "$v" }$(comma))])
+	[ "$(subst $(space),"$(comma)$(space)",$(DOC_VERSIONS))" ]
 
 PLAIN_FILES = \
     novaprova.css \
