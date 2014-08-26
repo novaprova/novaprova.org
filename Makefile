@@ -32,7 +32,8 @@ PLAIN_FILES = \
     jquery-1.7.2.min.js \
     iStock_000007540791Small_scaled.jpg \
     googlec696ef6eb0b0b2f3.html \
-    lca2013-novaprova-final.odp
+    lca2013-novaprova-final.odp \
+    robots.txt sitemap.xml
 
 all: $(addprefix build/,$(PLAIN_FILES) $(MUSTACHE_FILES) $(DOC_FILES))
 
