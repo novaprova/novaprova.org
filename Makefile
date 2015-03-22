@@ -7,6 +7,8 @@ define space
  
 endef
 
+UNAME_S=$(shell uname -s)
+
 MUSTACHE_FILES = \
     docs.html \
     download.html \
@@ -45,16 +47,30 @@ DESTINATION_test = \
 install test: 
 	rsync -vad -e ssh build/ $(DESTINATION_$@)
 
+# Usage: $(call mustache, foo.yaml, bar.html) > baz.html
+ifeq ($(UNAME_S),Darwin)
+define mustache
+mustache $(1) $(2)
+endef
+else
+define mustache
+( echo "---" ; cat $(1) ; echo "---" ; cat $(2) ) | mustache
+endef
+endif
+
 $(addprefix build/,$(MUSTACHE_FILES)) : build/%.html : %.html head.html foot.html
 	@mkdir -p $(@D)
 	( \
-	    sed -n -e '1p' < $< ;\
 	    echo 'versions: $(_versions_yaml)' ;\
-	    sed -n -e '2,/^---/p' < $< ;\
+	    sed -e '1d' -e '/^---/,$$d' < $< \
+	) > $@.tmp.yaml
+	( \
 	    cat head.html ;\
 	    sed -e '1,/^---/d' < $< ;\
 	    cat foot.html ;\
-	) | mustache > $@
+	) > $@.tmp.html
+	$(call mustache, $@.tmp.yaml, $@.tmp.html) > $@
+	$(RM) $@.tmp.yaml $@.tmp.html
 
 $(addprefix build/,$(PLAIN_FILES)) : build/% : %
 	@mkdir -p $(@D)
@@ -70,28 +86,30 @@ doc-%/.stamp: doc-%.tar.bz2
 	tar -xvf doc-$*.tar.bz2
 	find doc-$* -type f -name '*.html' | while read file ; do \
 	    echo "Munging $$file" ;\
+	    dir=`dirname $$file` ;\
+	    addcss="" ;\
+	    cssfiles=`cd $$dir && ls *.css 2>/dev/null` ;\
+	    if [ -n "$$cssfiles" ] ; then \
+		for css in $$cssfiles ; do \
+		    [ -n "$$addcss" ] && addcss="$$addcss, " ;\
+		    addcss="$$addcss{path: $$css}" ;\
+		done ;\
+	    fi ;\
 	    ( \
-		dir=`dirname $$file` ;\
-		addcss="" ;\
-		cssfiles=`cd $$dir && ls *.css 2>/dev/null` ;\
-		if [ -n "$$cssfiles" ] ; then \
-		    for css in $$cssfiles ; do \
-			[ -n "$$addcss" ] && addcss="$$addcss, " ;\
-			addcss="$$addcss{path: $$css}" ;\
-		    done ;\
-		fi ;\
-		echo '---' ;\
 		sed -n -e 's/.*<title>\(.*\)<\/title>.*/\1/p' < $$file | sed -e 's/://g' -e 's/^/title: /' ;\
 		echo 'pathup: '`echo $@ | sed -e 's|[^/][^/]*|..|g'`/;\
 		echo "addcss: [$$addcss]" ;\
-		echo '---' ;\
+	    ) > $$file.tmp.yaml ;\
+	    ( \
 		cat head.html ;\
 		echo '<div id="docs" class="column">' ;\
 		sed -e '1,/<body>/d' -e '/<\/body>/,$$d' < $$file ;\
 		echo '</div>' ;\
 		cat foot.html ;\
-	    ) | mustache > $$file.new ;\
+	    ) > $$file.tmp.html ;\
+	    $(call mustache, $$file.tmp.yaml, $$file.tmp.html) > $$file.new ;\
 	    mv -f $$file.new $$file ;\
+	    $(RM) $$file.tmp.yaml $$file.tmp.html ;\
 	done
 	touch $@
 
