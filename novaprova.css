@@ -4,7 +4,7 @@ body {
     padding: 0px;
     background: #fffcf5;
 }
-@media (max-device-width: 450px) {
+@media (max-width: 450px) {
     #header {
 	background: #fffcf5;
 	padding: 0px;
@@ -22,7 +22,7 @@ body {
 	font: bold italic 16px verdana,arial,helvetica,sans-serif;
     }
 }
-@media (min-device-width: 451px) {
+@media (min-width: 451px) {
     /* on large screens we have a background image 
      * to fill up the boring space on the right */
     #header {
@@ -78,7 +78,7 @@ body {
 #docs {
     padding: 10px;
 }
-@media (max-device-width: 450px) {
+@media (max-width: 450px) {
     /* small screens: columns arranged vertically */
     #column1 {
 	width: 100%;
@@ -89,7 +89,7 @@ body {
 	margin: 0px;
     }
 }
-@media (min-device-width: 451px) {
+@media (min-width: 451px) {
     /* large screens: columns arranged horizontally */
     #column1 {
 	width: 50%;
