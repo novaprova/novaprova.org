@@ -126,14 +126,13 @@ body {
 #footer {
     background: #fffcf5;
     border-top: 3px solid #808080;
-    padding: 4px;
-    margin: 0px;
     width: 100%;
     clear: left;
 }
 #footer p {
     font: 8pt verdana,arial,helvetica,sans-serif;
     text-align: center;
+    margin: 4px;
 }
 H2 { font: bold 18pt verdana,arial,helvetica,sans-serif; }
 H3 { font: bold 14pt verdana,arial,helvetica,sans-serif; }
