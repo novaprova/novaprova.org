@@ -40,11 +40,13 @@ PLAIN_FILES = \
 all: $(addprefix build/,$(PLAIN_FILES) $(MUSTACHE_FILES) $(DOC_FILES))
 
 DESTINATION_install = \
-    $(USER),novaprova@web.sourceforge.net:/home/project-web/novaprova/htdocs
+    gnb,novaprova@web.sourceforge.net:/home/project-web/novaprova/htdocs
+DESTINATION_beta = \
+    gnb,novaprova@web.sourceforge.net:/home/project-web/novaprova/htdocs/beta
 DESTINATION_test = \
     /tmp/novaprova
 
-install test: 
+install test beta:
 	rsync -vad -e ssh build/ $(DESTINATION_$@)
 
 # Usage: $(call mustache, foo.yaml, bar.html) > baz.html
