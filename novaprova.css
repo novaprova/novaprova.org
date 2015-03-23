@@ -118,6 +118,11 @@ body {
     font-weight: bold;
     margin: 6px;
 }
+@media (max-device-width: 400px) {
+#faq dd {
+    -webkit-margin-start: 0px;
+}
+}
 #footer {
     background: #fffcf5;
     border-top: 3px solid #808080;
