@@ -75,15 +75,29 @@ body {
 #docs {
     padding: 10px;
 }
-#column1 {
-    width: 50%;
-    margin: 0px;
-    float: left;
+@media (max-device-width: 400px) {
+    /* small screens: columns arranged vertically */
+    #column1 {
+	width: 100%;
+	margin: 0px;
+    }
+    #column2 {
+	width: 100%;
+	margin: 0px;
+    }
 }
-#column2 {
-    border-left: 1px solid #e0e0e0;
-    width: 50%;
-    margin: 0px 0px 0px 50%;
+@media (min-device-width: 401px) {
+    /* large screens: columns arranged horizontally */
+    #column1 {
+	width: 50%;
+	margin: 0px;
+	float: left;
+    }
+    #column2 {
+	border-left: 1px solid #e0e0e0;
+	width: 50%;
+	margin: 0px 0px 0px 50%;
+    }
 }
 .column p {
     margin: 6px;
