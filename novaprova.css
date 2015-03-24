@@ -134,6 +134,10 @@ body {
     /* more room for tap targets */
     margin: 12px;
 }
+#contact li {
+    /* more room for tap targets */
+    margin: 12px;
+}
 }
 #footer {
     background: #fffcf5;
