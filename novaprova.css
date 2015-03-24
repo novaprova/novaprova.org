@@ -129,6 +129,12 @@ body {
     margin: 6px;
 }
 }
+@media (max-device-width: 400px) {
+#downloads li {
+    /* more room for tap targets */
+    margin: 12px;
+}
+}
 #footer {
     background: #fffcf5;
     border-top: 3px solid #808080;
