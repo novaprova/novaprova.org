@@ -49,6 +49,10 @@ DESTINATION_test = \
 install test beta:
 	rsync -vad -e ssh build/ $(DESTINATION_$@)
 
+# Mustachify the css file for inlining by mustache
+css.mustache: novaprova.css
+	cp $< $@
+
 # Usage: $(call mustache, foo.yaml, bar.html) > baz.html
 ifeq ($(UNAME_S),Darwin)
 define mustache
@@ -60,7 +64,7 @@ define mustache
 endef
 endif
 
-$(addprefix build/,$(MUSTACHE_FILES)) : build/%.html : %.html head.html foot.html
+$(addprefix build/,$(MUSTACHE_FILES)) : build/%.html : %.html head.html foot.html css.mustache
 	@mkdir -p $(@D)
 	( \
 	    echo 'versions: $(_versions_yaml)' ;\
@@ -101,6 +105,7 @@ doc-%/.stamp: doc-%.tar.bz2
 		sed -n -e 's/.*<title>\(.*\)<\/title>.*/\1/p' < $$file | sed -e 's/://g' -e 's/^/title: /' ;\
 		echo 'pathup: '`echo $@ | sed -e 's|[^/][^/]*|..|g'`/;\
 		echo "addcss: [$$addcss]" ;\
+		echo "css_is_separate: yes" ;\
 	    ) > $$file.tmp.yaml ;\
 	    ( \
 		cat head.html ;\
@@ -117,4 +122,4 @@ doc-%/.stamp: doc-%.tar.bz2
 
 
 clean:
-	$(RM) -r $(addprefix doc-,$(DOC_VERSIONS)) build $(DESTINATION_test)
+	$(RM) -r $(addprefix doc-,$(DOC_VERSIONS)) build $(DESTINATION_test) css.mustache

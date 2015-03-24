@@ -119,6 +119,7 @@ body {
     font-weight: bold;
     /* more room for tap targets */
     margin: 12px;
+}
 #faq dd {
     -webkit-margin-start: 0px;
 }

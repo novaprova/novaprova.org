@@ -4,7 +4,14 @@
   <!-- Copyright (c) 2012-2015 Greg Banks. All Rights Reserved.  -->
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>{{title}}</title>
+{{#css_is_separate}}
   <link href="{{pathup}}novaprova.css" rel="stylesheet" type="text/css">
+{{/css_is_separate}}
+{{^css_is_separate}}
+  <style>
+{{> css}}
+  </style>
+{{/css_is_separate}}
 {{#addcss}}
   <link href="{{path}}" rel="stylesheet" type="text/css">
 {{/addcss}}
