@@ -114,13 +114,19 @@ body {
 #faq {
     padding: 10px;
 }
+@media (max-device-width: 400px) {
+#faq dt {
+    font-weight: bold;
+    /* more room for tap targets */
+    margin: 12px;
+#faq dd {
+    -webkit-margin-start: 0px;
+}
+}
+@media (min-device-width: 401px) {
 #faq dt {
     font-weight: bold;
     margin: 6px;
-}
-@media (max-device-width: 400px) {
-#faq dd {
-    -webkit-margin-start: 0px;
 }
 }
 #footer {
