@@ -39,15 +39,35 @@ PLAIN_FILES = \
 
 all: $(addprefix build/,$(PLAIN_FILES) $(MUSTACHE_FILES) $(DOC_FILES))
 
-DESTINATION_install = \
-    gnb,novaprova@web.sourceforge.net:/home/project-web/novaprova/htdocs
-DESTINATION_beta = \
-    gnb,novaprova@web.sourceforge.net:/home/project-web/novaprova/htdocs/beta
+DEPLOY_REPO_URL=	git@github.com:novaprova/novaprova.github.io.git
+DESTINATION__deploy = \
+    deploy
 DESTINATION_test = \
     /tmp/novaprova
 
-install test beta:
+test:
 	rsync -vad -e ssh build/ $(DESTINATION_$@)
+
+install:
+	if [ ! -d deploy ] ; then \
+	    git clone $(DEPLOY_REPO_URL) deploy ;\
+	else \
+	    ( \
+		cd deploy || exit 1; \
+		git checkout master ;\
+		git ls-files -o -z | xargs -0 $(RM) ;\
+		git fetch $(DEPLOY_REPO_URL) master ;\
+		git reset --hard origin/master ;\
+	    ) ;\
+	fi
+	rsync -vad build/ deploy/
+	( \
+	    cd deploy || exit 1 ;\
+	    git ls-files -o -z | xargs -0 git add ;\
+	    git commit -a -m "Automatic commit by 'make install'" ;\
+	    git push origin master ;\
+	)
+
 
 # Mustachify the css file for inlining by mustache
 css.mustache: novaprova.css
