@@ -14,7 +14,8 @@ MUSTACHE_FILES = \
     download.html \
     faq.html \
     index.html \
-    support.html
+    support.html \
+    darwin.html
 
 DOC_VERSIONS = 	1.0 1.1 1.2
 

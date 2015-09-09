@@ -1,0 +1,53 @@
+---
+title: novaprova on Mac
+---
+<div id="column" class="column">
+
+<h2>Status</h2>
+
+<p>Novaprova has a Mac OS X port under way but not yet released.
+The current status is:</p>
+
+<ul>
+
+<li><b>beta</b>: ready to try</li>
+
+<li>available in the <tt>darwin</tt> branch on GitHub</li>
+
+<li>runs and passes all regresssion tests</li>
+
+<li>tested on Darwin 10.9.5 only</li>
+
+<li>requires a very recent, unreleased,
+    <a href="http://www.valgrind.org/">Valgrind</a> build.</li>
+
+<li>no Mac-specific packaging has been done (e.g. a Framework,
+    and an installer or <a href="http://brew.sh/">Homebrew</a> package).</li>
+
+</ul>
+
+<h2>Getting Valgrind</h2>
+
+<p>The latest release of Valgrind at time of writing is 3.10.1.  This
+version contains a bug which prevents many of the advanced features
+of Novaprova from working.  The fix is in SVN but not yet released
+(presumably it will be in 3.11).  So to try Novaprova on Darwin you
+will need to:</p>
+
+<ol>
+
+<li>Check out Valgrind from SVN.  <a href="http://valgrind.org/downloads/repository.html">Start here</a></li>
+
+<li>Build and install Valgrind, e.g. into <tt>/usr/local</tt>.  Make
+sure to either uninstall the Valgrind you got using Homebrew or install
+this one in a different directory.</li>
+
+<li>Check out the <tt>darwin</tt> branch from <a
+href="https://github.com/novaprova/novaprova">the Novaprova github repo</a>.</li>
+
+<li>Configure Novaprova to use the newly built Valgrind, e.g.
+<tt>./configure --with-valgrind=/usr/local/bin/valgrind</tt>
+</li>
+
+</div>
+
